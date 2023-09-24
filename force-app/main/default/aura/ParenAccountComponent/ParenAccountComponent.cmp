@@ -1,0 +1,59 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" controller="LightningAccountContactsController">
+    
+    <aura:handler name="accConEventName" event="c:AccountContactsComponentEvent" action="{!c.handleComponetEvent}"></aura:handler>
+    
+    <aura:attribute name="accContacts" type="Contact[]" default="[]"></aura:attribute>
+    
+    <aura:attribute name="isContactEmpty" type="boolean" default="true"></aura:attribute>
+    
+    <aura:attribute name="isShowContactModal" type="boolean" default="false"></aura:attribute>
+    
+    <aura:attribute name="contactRecordId" type="string" default=""></aura:attribute>
+    
+    <aura:handler name="hideContactModal" event="c:LightningEditContactModalEvent" action="{!c.HideEditContactModal}"></aura:handler>
+    
+    <div class="slds-box">
+        <c:ChilAccountComponent></c:ChilAccountComponent>
+        
+        <aura:if isTrue="{!v.isContactEmpty}">
+            <div style="color:red">No Contacts Found</div>
+            <aura:set attribute="else">
+                <div style="color:green">Contact Found</div>
+                <aura:iteration items="{!v.accContacts}" var="contactObj">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__body">
+                                    <h2 class="slds-card__header-title">
+                                        <a href="{!'https://arctech-b-dev-ed.lightning.force.com/lightning/r/Contact/'+contactObj.Id+'/view'}" target="_blank" class="slds-card__header-link slds-truncate" title="Contacts">
+                                            <span>{!contactObj.Name}</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                                <div>
+                                    <lightning:button class="slds-button slds-button_brand" name="{!contactObj.Id}" onclick="{!c.showEditContactModal}">Edit</lightning:button>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">
+                            <dl class="slds-list_horizontal slds-wrap">
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="First Label">Name:</dt>
+                                <dd class="slds-item_detail slds-truncate" title="Description for first label">{!contactObj.Name}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Email:</dt>
+                                <dd class="slds-item_detail slds-truncate" title="Description for second label">{!contactObj.Email}</dd>
+                                <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Second Label">Phone:</dt>
+                                <dd class="slds-item_detail slds-truncate" title="Description for second label">{!contactObj.Phone}</dd>
+                            </dl>
+                            
+                        </div>      
+                    </article>
+                    
+                </aura:iteration>
+            </aura:set>
+        </aura:if>
+        <aura:if isTrue="{!v.isShowContactModal}">
+            <c:LightningEditContactModalComponent recordId="{!v.contactRecordId}"></c:LightningEditContactModalComponent>
+        </aura:if>
+        
+    </div>
+</aura:component>

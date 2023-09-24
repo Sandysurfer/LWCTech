@@ -1,0 +1,14 @@
+<template>
+	<lightning-card variant="Narrow" title="Wire a Property" icon-name="custom:custom46">
+		<template if:true={accountRecords.data}>
+			<template for:each={accountRecords.data} for:item="accObj">
+				<li key={accObj.Id}>{accObj.Name} ---->{accObj.Industry}</li>
+			</template>
+			<p>Account Name: {name}</p>
+		</template>
+		<template if:true={accountRecords.error}>
+            {accountRecords.error}
+		</template>
+
+	</lightning-card>
+</template>

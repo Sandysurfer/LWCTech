@@ -1,0 +1,31 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:attribute name="contactRecord" type="Object"/>
+    <aura:attribute name="recordId" type="Id"/>
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="FirstName,LastName,Email"
+                      targetFields="{!v.contactRecord}"/>
+    
+    <lightning:layout multipleRows="true">
+        <lightning:layoutItem size="4">
+            <lightning:card >
+                <lightning:input label="Enter Contact Id" value="{!v.recordId}"/> 
+                <lightning:button label="Fetch Data" onclick="{!c.handleFetchData}"/>
+            </lightning:card> 
+            
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem size="4">
+            <lightning:card>
+                FirstName:<lightning:FormattedText value="{!v.contactRecord.FirstName}"/>
+                <lightning:input label="LastName" value="{!v.contactRecord.LastName}"/>
+                <lightning:input label="Email" value="{!v.contactRecord.Email}"/>
+            </lightning:card>
+        </lightning:layoutItem> 
+        
+        
+    </lightning:layout>
+    
+</aura:component>

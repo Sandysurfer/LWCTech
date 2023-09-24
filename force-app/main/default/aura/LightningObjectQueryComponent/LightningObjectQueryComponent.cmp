@@ -1,0 +1,54 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" Controller="LightningGetAllObjects" >
+    
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="fields" type="List" />
+    <aura:attribute name="selectedList" type="String" />
+    <aura:attribute name="values" type="List" default="[]"/>
+    <aura:attribute name="functions" type="String" />
+    
+    <aura:attribute name="displayField" type="List"/>
+    <aura:attribute name="queryString" type="String" />
+    <aura:attribute name="objName" type="String" />
+    <aura:attribute name="displayFunction" type="String"/>
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    <lightning:card title="Lightning Query Editor">
+        <div class="slds-box">
+        <lightning:combobox name="Object" 
+                            label="Select Object" 
+                            value="inProgress" 
+                            placeholder="Select Object" 
+                            options="{!v.options}" 
+                            onchange="{!c.handleClick}"/>
+        
+        <lightning:dualListbox name="Fields"
+                               label= "Select Fields"
+                               options="{!v.fields}"
+                               sourceLabel="Available" 
+                               selectedLabel="Selected" 
+                               value="{!v.values}" 
+                               onchange="{!c.handleChange}"
+                               size="5"/>
+        <br/>
+        <lightning:combobox name="Fuctions" 
+                            label="Select Fuction"  
+                            placeholder="Select Function" 
+                            options="{!v.functions}"
+                            onchange="{!c.handleFunctions}"/>
+        <br/>
+        
+        <div>
+            <lightning:button variant="brand"  label="Build Query" title="Brand action" onclick="{!c.generateQuery}" />
+        </div>
+        <br/>
+        </div>
+    </lightning:card>
+    
+    <div class = "slds-box">
+        <div class="row slds-box">
+            <lightning:textarea name="input1" value= "{!v.queryString}" label="Query Result" />
+        </div>
+    </div>
+    
+</aura:component>

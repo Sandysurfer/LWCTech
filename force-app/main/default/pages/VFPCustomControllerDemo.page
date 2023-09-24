@@ -1,0 +1,35 @@
+<apex:page controller="CustomControllerExampleClass">
+    <apex:form >
+        <apex:pageBlock title="My Conntent">
+            <apex:pageBlockSection title="My Content Section" columns="2">
+                <apex:outputLabel >Enter Name:</apex:outputLabel>
+                <apex:inputText value="{!UserName}"/>
+                <apex:commandButton value="click me" action="{!ShowMessage}"/>
+                <apex:outputLabel >{!message}</apex:outputLabel>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Addition">
+            <apex:pageBlockSection title="Addition Of 2 Numbers" columns="1">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Enter Number1:</apex:outputLabel>
+                    <apex:inputText value="{!Num1}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Enter Number2:</apex:outputLabel>
+                    <apex:inputText value="{!Num2}"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Result:</apex:outputLabel>
+                    <apex:outputLabel >{!Result}</apex:outputLabel>
+                </apex:pageBlockSectionItem>
+                <apex:commandButton value="Addition" action="{!Addition}"/>
+                <apex:commandButton value="Substract" action="{!Substraction}"/>
+                <apex:commandButton value="Multiply" action="{!Multiplication}"/>
+                <apex:commandButton value="Divide" action="{!Division}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

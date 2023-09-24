@@ -1,0 +1,13 @@
+<template>
+	<lightning-card variant="Narrow" title="Wire as Imperative" icon-name="custom:custom46">
+
+		<lightning-button variant="brand" label="Get Accounts" onclick={handleLoad}></lightning-button>
+        
+		<template if:true={accountRecords}>
+			<template for:each={accountRecords} for:item="accObj">
+				<p key={accObj.Id}>{accObj.Name} ---->{accObj.Industry}</p>
+			</template>
+		</template>
+
+	</lightning-card>
+</template>

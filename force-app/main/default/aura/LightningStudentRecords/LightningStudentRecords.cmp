@@ -1,0 +1,54 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                access="global"
+                controller="LightningMathematicalOperation">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:attribute name="studentList" type="Student__c[]"/>
+    
+    <table  class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Student ID">Student ID</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Student Name">Student Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Student Email">Student Email</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Course">Course</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Fees Deposited">Fees Deposited</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <aura:iteration items="{!v.studentList}" var="studentobj">
+                <tr class="slds-hint-parent">
+                    <td data-label="Student ID">
+                        <div class="slds-truncate" title="Student ID">{!studentobj.Id}</div>
+                    </td>
+                    <td data-label="Student Name">
+                        <div class="slds-truncate" title="Student Name">{!studentobj.Student_Name__c}</div>
+                    </td>
+                    <td data-label="Student Email">
+                        <div class="slds-truncate" title="Student Email">{!studentobj.Student_Email__c}</div>
+                    </td>
+                    <td data-label="Course Name">
+                        <div class="slds-truncate" title="Course Name">{!studentobj.Course__r.Name}</div>
+                    </td>
+                    <td data-label="Fees Deposited">
+                        <div class="slds-truncate" title="Fees Deposited">{!studentobj.Fees_Deposited__c}</div>
+                    </td>
+                </tr>
+            </aura:iteration>
+            
+        </tbody>
+    </table>
+    
+    
+</aura:component>

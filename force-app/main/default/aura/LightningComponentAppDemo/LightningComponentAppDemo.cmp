@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    
+     <ui:inputText label="First Name" aura:id="FirstName" placeholder="type here..."/>
+     <ui:inputText label="Last Name" aura:id="LastName" placeholder="type here..."/>
+     <ui:button aura:id="ButtonForAction"  label="Submit"  press="{!c.getInfo}" />
+     <ui:outputText aura:id="NametoDisplay" value =""/>
+    
+</aura:component>

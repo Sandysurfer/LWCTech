@@ -1,0 +1,24 @@
+<template>
+	<lightning-card title="Calculator">
+		<div class="slds-box">
+			<lightning-input type="number" name="num1" label="Enter first number" value={firstnumber}
+				onchange={onChangeHandler}></lightning-input>
+			<lightning-input type="number" name="num2" label="Enter second number" value={secondnumber}
+				onchange={onChangeHandler}></lightning-input>
+
+			Result : {result}<br/>
+			<lightning-button variant="success" label="Addition" title="Click Here" onclick={handleClick}>
+			</lightning-button>
+			<lightning-button variant="destructive" label="Substraction" title="Click Here" onclick={handleClick}>
+			</lightning-button>
+			<lightning-button variant="brand" label="Multiplication" title="Click Here" onclick={handleClick}>
+			</lightning-button>
+			<lightning-button variant="brand" label="Division" title="Click Here" onclick={handleClick}>
+			</lightning-button>
+			<lightning-button variant="base" label="Reset" title="Click Here" onclick={handleClick}>
+			</lightning-button>
+
+
+		</div>
+	</lightning-card>
+</template>

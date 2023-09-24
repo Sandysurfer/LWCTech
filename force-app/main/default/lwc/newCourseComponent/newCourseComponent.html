@@ -1,0 +1,79 @@
+<template>
+    <lightning-card variant="Narrow" title="Add New Course" icon-name="custom:custom45">
+        <div class="slds-box">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_12-of-12 slds-m-top_medium">
+                    <lightning-input type="text" label="Enter Course Name:" value={courseName}
+                        onchange={courseNamehandleChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_12-of-12 slds-m-top_medium">
+                    <span>Enter the course details :</span>
+                    <lightning-input-rich-text value={courseDetails}
+                        onchange={courseDetailsHandleChange}></lightning-input-rich-text>
+                    <lightning-formatted-rich-text></lightning-formatted-rich-text>
+                </div>
+
+                <div class="slds-col slds-size_12-of-12 slds-m-top_medium">
+                    <lightning-button variant="brand" label="Add Course" title="Primary action"
+                        onclick={addCourseHandleClick} class="slds-m-left_x-small"></lightning-button>
+                </div>
+                <template if:true={isCourseAlreadyExists}>
+                    <div class="slds-col slds-size_12-of-12 slds-m-top_medium">
+                        <label style="font-size: 18px;color:red;font-weight:500">This course is already exists!!</label>
+                    </div>
+                </template>
+
+            </div>
+        </div>
+    </lightning-card>
+    
+
+    <lightning-card variant="Narrow" title="Added Course" icon-name="custom:custom46">
+        <div class="slds-box">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Course Name">Course Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Course Description">Course Description</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Action">Actions</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={allCourses} for:item="courseObj">
+                        <tr class="slds-hint-parent" key={courseObj.courseName}>
+                            <td data-label="Course Name" scope="row">
+                                <div class="slds-truncate" title="">{courseObj.courseName}</div>
+                            </td>
+                            <td data-label="Description">
+                                <div class="slds-truncate" title="34" style="max-width: 333px;display:inline-block">
+                                    {courseObj.courseDetails}
+                                </div>
+                            </td>
+                            <td data-label="Actions">
+                                <div class="slds-truncate" title="">
+                                    <lightning-button variant="base" label="" title="Edit" class="slds-m-left_x-small"
+                                        data-id={courseObj.courseName} onclick={handleEditCourseClick}
+                                        icon-name="action:edit"></lightning-button>
+                                    <lightning-button variant="base" label="" title="Delete" class="slds-m-left_x-small"
+                                        data-id={courseObj.courseName} onclick={handleDeleteCourseClick}
+                                        icon-name="action:delete"></lightning-button>
+                                </div>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+
+            <div class="slds-m-top_medium">
+                <lightning-button variant="brand" label="Submit" title="Primary Action" onclick={handleSaveRecords}
+                    class="slds-m-left_x-small"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,38 @@
+<apex:page standardController="Account" extensions="MyControllerExtensionExample" >
+    <apex:form >
+        <apex:pageBlock title="PageBlock 1">
+            <apex:pageBlockSection title="PageBlock Section 1 | Custom Controller Example" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Greeting" action="{!ShowGreeting}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >{!message}</apex:outputLabel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="PageBlock 2">
+            <apex:pageBlockSection title="PageBlock Section 2 | Standard Controller Example" columns="2">
+                <apex:pageBlockSectionItem >
+                    New Account: <apex:inputField value="{!Account.Name}" required="false"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="Save" action="{!save}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="PageBlock 3">
+            <apex:pageBlockSection title="{PageBlock Section 3 | Using Custom Code For Save}" columns="2">
+                <apex:pageBlockSectionItem >
+                    New Account: <apex:inputText value="{!VariableforStoringAccountName}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton value="CustomSave" action="{!MySave}"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

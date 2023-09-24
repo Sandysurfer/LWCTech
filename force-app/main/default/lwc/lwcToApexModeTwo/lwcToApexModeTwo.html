@@ -1,0 +1,14 @@
+<template>
+    <lightning-card variant="Narrow" title="Wire as Function" icon-name="custom:custom46">
+        <template if:true={accountRecords}>
+            <template for:each={accountRecords} for:item="accObj">
+                <lightning-layout key={accObj.id} class="slds-var-m-vertical_x-small">
+                    <lightning-layout-Item> {accObj.Name} ->{accObj.Industry}</lightning-layout-Item> 
+                </lightning-layout>
+            </template>
+        </template>
+        <template if:true={accountError}>
+            {accountError}
+        </template>
+    </lightning-card>
+</template>

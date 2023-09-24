@@ -1,0 +1,19 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global"
+                controller="LightningAllAccounts">
+    
+    <aura:attribute name = "accList" type="List"/>
+    <aura:handler name = "init" value="{!this}" action = "{!c.doInit}"/>
+    
+    <lightning:card title="Account Names" class="slds-p-left_x-large">
+        <aura:set attribute="actions">
+            <lightning:button label= "create Account" onclick ="{!c.handleAccount}"/>
+        </aura:set>
+        <lightning:select name= "Select" label="Select An Account">
+            <aura:iteration items="{!v.accList}" var = "acc">
+                <option value="{!acc.Id}">{!acc.Name}</option>
+            </aura:iteration>
+        </lightning:select>
+    </lightning:card>
+    
+</aura:component>

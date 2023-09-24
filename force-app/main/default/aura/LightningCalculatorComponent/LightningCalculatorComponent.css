@@ -1,0 +1,13 @@
+.THIS.cardStyle {
+    float:right;
+    border:groove;
+}
+.THIS .tdStyle{
+    border: double;
+    text-align: right;
+    font-size: 20px;
+}
+.THIS button{
+    width: -webkit-fill-available;
+    background-image: linear-gradient(#ff00552e,#8e5f930d,#ff00ea26);
+}

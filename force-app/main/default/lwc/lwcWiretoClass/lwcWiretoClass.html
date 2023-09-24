@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Search Contact">
+        <lightning-input label="Enter the Text" type="Search" value={searchkey}
+            onchange={handleChange}></lightning-input>
+        <template if:true={contact.data}>
+            <template for:each={contact.data} for:item="con">
+                <p key={con.Id}>{con.Name}</p>
+                <p key={con.Id}>{con.Phone}</p>
+                <p key={con.Id}>{con.Email}</p>
+            </template>
+        </template>
+
+        <template if:true={contact.error}>
+            Failed To Display the Contact
+        </template>
+    </lightning-card>
+</template>

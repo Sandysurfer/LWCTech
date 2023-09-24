@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <lightning:button label="Success" variant="brand" onclick="{!c.handleSuccess}"/>
+    <lightning:button label="Information" variant="inverse" onclick="{!c.handleInformation}"/>
+    <lightning:button label="Error" variant="destructive" onclick="{!c.handleError}"/>
+    
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component >
+    
+    <aura:attribute name="incNumber" type="Integer" default="0"/>
+    <aura:attribute name="messageFromEvent" type="String" default="0"/>
+    <aura:handler name="cmpEvent" event="c:LightningIncrementNumber" action="{!c.handleEvent}"/>
+    
+    <lightning:card title="ParentComponent">
+        <p>Message From Event: {!v.messageFromEvent}</p>
+        <p>Number of Events: {!v.incNumber}</p> 
+    </lightning:card>
+    <c:IncrementChildComponent></c:IncrementChildComponent>
+</aura:component>

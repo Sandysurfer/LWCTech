@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name = "age" type="Integer[]" default="[55,44,33,22,11]"/>
+    <aura:attribute name = "cities" type="List" default="['Hyd','Blr','Mum','Ngp']"/>
+    <aura:attribute name = "numbers" type="List" default="[1,2,3,4,5]"/>
+    <aura:attribute name = "colors" type="Set" default="['Blue','green','Red']"/>
+    <aura:attribute name = "intNumber" type="Integer" default="10"/>
+    
+    
+    <lightning:card title="Collections">
+        <aura:set attribute="actions">
+            <lightning:button label="DisplayNumbers" onclick="{!c.handleNumbers}"/>
+        </aura:set>
+        
+        <lightning:layout>
+            <lightning:layoutItem size="4" padding="around-small">
+                <aura:iteration items="{!v.numbers}" var="num">
+                    <p>{!num}</p>
+                </aura:iteration>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" padding="around-small">
+                <aura:iteration items="{!v.cities}" var="city">
+                    <p>{!city}</p>
+                </aura:iteration>
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

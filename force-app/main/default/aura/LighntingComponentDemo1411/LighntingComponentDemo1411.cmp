@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    
+    <aura:attribute name="isEligible" type="boolean" default=""/>
+    <ui:inputText label="Age" aura:id="Age" placeholder="Age"/>
+    <ui:button label="Check" press="{!c.checkEligibility}" />
+    
+    <aura:if isTrue="{!v.isEligible}">
+        <p>Eligible for Vote</p>
+        <aura:set attribute="else">
+            <p>Not Eligible for Vote</p>
+        </aura:set>
+        
+    </aura:if>
+    
+</aura:component>

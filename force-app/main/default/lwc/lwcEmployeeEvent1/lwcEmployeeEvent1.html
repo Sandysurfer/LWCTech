@@ -1,0 +1,15 @@
+<template>
+	<lightning-card variant="Narrow" title="Create Employee Details" icon-name="standard:account">
+		<lightning-input type="text" label="Employee Name" onchange={empName}>
+		</lightning-input>
+		<lightning-input type="text" label="Employee Phone" onchange={empPhone}>
+		</lightning-input>
+		<lightning-input type="text" label="Employee City" onchange={empCity}>
+		</lightning-input>
+
+
+		<lightning-button variant="Success" label="Submit" onclick={empEvent}>
+		</lightning-button>
+
+	</lightning-card>
+</template>

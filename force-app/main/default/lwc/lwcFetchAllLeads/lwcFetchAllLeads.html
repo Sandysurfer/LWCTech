@@ -1,0 +1,14 @@
+<template>
+	<lightning-card variant="Narrow" title="Wire as Function" icon-name="custom:custom46">
+		<template if:true={leadRecords}>
+			<template for:each={leadRecords} for:item="leadObj">
+				<p key={leadObj.Id}>{leadObj.Name} ---->{leadObj.Status}</p>
+			</template>
+		</template>
+        
+		<template if:true={leadError}>
+			{leadError}
+		</template>
+	</lightning-card>
+
+</template>

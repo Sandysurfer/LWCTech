@@ -1,0 +1,9 @@
+<aura:component >
+    
+    <aura:registerEvent name="cmpEvent" type="c:LightningIncrementNumber"/>
+    <lightning:card title="childComponent">
+        This is Child Component
+    </lightning:card>
+    <lightning:button label="Addition" onClick = "{!c.handleAdd}"></lightning:button>
+    
+</aura:component>

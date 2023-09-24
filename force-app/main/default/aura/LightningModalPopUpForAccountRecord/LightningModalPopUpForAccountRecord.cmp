@@ -1,0 +1,64 @@
+<aura:component Controller="AccountHandler" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="response" type="boolean" />
+    <div class="slds-m-around_xx-large">
+        <lightning:card footer="Card Footer" title="Create Account Record">
+            <lightning:button variant="brand"
+                              label="Create Account"
+                              title="Create Account"
+                              onclick="{! c.openModal }" />
+            
+        </lightning:card>
+        <!--Use aura:if tag to display/hide popup based on isModalOpen value-->
+        <aura:if isTrue="{!v.isModalOpen}">
+            
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp Box</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input type="text" name="name" aura:id="name" label="Name" required="true" placeholder ="Enter Name" />
+                                
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_medium">
+                                <lightning:input type="text" name="phone" aura:id="phone" label="Phone" required="true"  placeholder ="Enter Phone" />
+                                
+                            </div>
+                        </div>
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-2">
+                                <lightning:input type="Number" name="accnumber" aura:id="accountnumber" label="Account Number" required="true" placeholder="Enter Account Nmber" />
+                                
+                            </div>
+                            <div class="slds-col slds-size_1-of-2 slds-p-left_medium">
+                                <lightning:input type="text" name="anualrevenue" aura:id="annualrevenue" label="Annual Revenue" required="true" placeholder="Enter Annual Revenue" />
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button variant="brand"
+                                          label="Save"
+                                          title="Save"
+                                          onclick="{!c.submitDetails}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

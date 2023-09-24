@@ -1,0 +1,14 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <aura:registerEvent name="accConEventName" type="c:AccountContactsComponentEvent"></aura:registerEvent>
+    <h2>Get Account Associated Contacts</h2>
+    <lightning:input name="input1" label="Enter Account Name"  aura:id="accountName"/>
+    
+    <aura:attribute name="isAccountName" type="boolean" default="false"></aura:attribute>
+    <div class="{!v.isAccountName?'slds-show':'slds-hide'}" style="color:red">Please Enter Account Name</div>
+    
+    <div class="slds-m-top_medium slds-m-bottom_medium">
+        <lightning:button variant="brand" label="Get Contacts" onclick="{!c.SetEventAccountName}"/>
+    </div>
+    
+</aura:component>
