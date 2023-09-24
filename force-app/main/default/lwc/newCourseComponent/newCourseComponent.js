@@ -19,7 +19,7 @@ export default class NewCourseComponent extends LightningElement {
 
     addCourseHandleClick(event) {
 
-        let existingCourseName = this.allCourses.filter(course => course.courseName == this.courseName)
+        let existingCourseName = this.allCourses.filter(course => course.courseName == this.courseName);
         if (existingCourseName.length) 
         {
             this.isCourseAlreadyExists = true;
